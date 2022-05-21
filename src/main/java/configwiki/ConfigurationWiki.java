@@ -4,6 +4,8 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.annotations.BeforeSuite;
 
 import java.net.MalformedURLException;
@@ -11,6 +13,7 @@ import java.net.URL;
 
 public class ConfigurationWiki {
     protected static AppiumDriver<MobileElement>driver;
+    protected Logger logger = LoggerFactory.getLogger(ConfigurationWiki.class);
 @BeforeSuite
     public void setUp() throws MalformedURLException {
     DesiredCapabilities capabilities= new DesiredCapabilities();

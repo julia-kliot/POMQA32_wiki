@@ -10,9 +10,9 @@ public class SearchScreen extends MainScreen {
         super(driver);
     }
 
-    @FindBy(xpath = "//*[resource-id='org.wikipedia:id/search_src_text']")
+    @FindBy(xpath = "//*[@resource-id='org.wikipedia:id/search_src_text']")
     MobileElement textInput;
-    @FindBy(xpath = "//*[resource-id='org.wikipedia:id/page_list_item_container']")
+    @FindBy(xpath = "//*[@resource-id='org.wikipedia:id/page_list_item_container']")
     MobileElement liner;
 
     public SearchScreen fillInText(String text) {

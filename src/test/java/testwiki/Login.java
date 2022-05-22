@@ -1,6 +1,7 @@
 package testwiki;
 
 import configwiki.ConfigurationWiki;
+import configwiki.DataProviserWiki;
 import model.Auth;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -9,7 +10,7 @@ import screens.MainScreen;
 public class Login extends ConfigurationWiki {
 
     @Test
-    public void login1(){
+    public void login1() {
         logger.info("Start login 1");
         boolean isLogged = new MainScreen(driver)
                 .clickOnFlowButton()
@@ -20,4 +21,33 @@ public class Login extends ConfigurationWiki {
 
         Assert.assertTrue(isLogged);
     }
+
+    @Test(dataProvider = "loginData", dataProviderClass = DataProviserWiki.class)
+    public void login2(Auth user) {
+        logger.info("Start login 2");
+        new MainScreen(driver)
+                .clickOnFlowButton()
+                .clickOnLoginWikiButton()
+                .fillInLoginForm(user)
+                .clickOnFlowButton()
+                .logOut();
+    }
+
+    @Test(dataProvider = "logDataCsv", dataProviderClass = DataProviserWiki.class)
+    public void login3(Auth user) {
+        logger.info("Start login 3");
+        new MainScreen(driver)
+                .clickOnFlowButton()
+                .clickOnLoginWikiButton()
+                .fillInLoginForm(user)
+                .clickOnFlowButton()
+                .logOut();
+    }
+
+
+
+
+
+
+
 }

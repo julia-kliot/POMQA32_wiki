@@ -2,6 +2,7 @@ package configwiki;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.events.EventFiringWebDriverFactory;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.slf4j.Logger;
@@ -26,6 +27,7 @@ public class ConfigurationWiki {
     capabilities.setCapability("automationName", "Appium");
     capabilities.setCapability("app","C:/Users/julia/Documents/QA/Mobile/wiki.apk");
     driver = new AppiumDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
+    driver = EventFiringWebDriverFactory.getEventFiringWebDriver(driver, new AppiumListener());
 
 }
 }

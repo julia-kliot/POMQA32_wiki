@@ -44,10 +44,32 @@ public class Login extends ConfigurationWiki {
                 .logOut();
     }
 
+    @Test
+    public void loginData4() {
+        String inf = new MainScreen(driver)
+                .clickOnFlowButton()
+                .clickOnLoginWikiButton()
+                .fillInLoginForm(Auth.builder().username("juliakliot.jk").password("Misha240613").build())
+                .clickOnFlowButton()
+                .logOut()
+                .clickOnFlowButton()
+                .getInf();
+        Assert.assertEquals(inf, "Log in to Wikipedia");
+    }
 
+    @Test
+    public void loginData5(String login, String pwd) {
+        String inf = new MainScreen(driver)
+                .clickOnFlowButton()
+                .clickOnLoginWikiButton()
+                .fillInLoginForm2("juliakliot.jk", "misha240613")
+                .clickOnFlowButton()
+                //isAccountPresentAssert()
+                .logOut()
+                //.isElOnMainPagePresAssert()
+                .clickOnFlowButton()
+                .getInf();
+        Assert.assertEquals(inf, "Log in to Wikipedia");
 
-
-
-
-
+    }
 }

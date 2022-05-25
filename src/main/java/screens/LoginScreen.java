@@ -32,4 +32,17 @@ public class LoginScreen extends BaseScreen {
 
         return new MainScreen(driver);
     }
+
+    public MainScreen fillInLoginForm2(String login, String pwd) {
+
+        type(username, login);
+        should(username, 40);
+        toggleButton.click();
+        password.click();
+        Actions action = new Actions(driver);
+        action.sendKeys(pwd).perform();
+        should(logButton, 20);
+        logButton.click();
+        return new MainScreen(driver);
+    }
 }

@@ -33,4 +33,8 @@ public class TooltipScreen extends BaseScreen {
         logOutButton.click();
         return new MainScreen(driver);}
 
+    public String getInf () {
+        return logInButton.getText();
+    }
+
 }
